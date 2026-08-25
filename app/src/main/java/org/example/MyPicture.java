@@ -16,6 +16,8 @@ public class MyPicture {
 
     public static void drawPicture(double width, double height) {
         // Fill the background
+        
+
         SimpleGraphics.fillBackground("white");
 
 
@@ -45,6 +47,7 @@ public class MyPicture {
         SimpleGraphics.setOutlineColor("blue");
         SimpleGraphics.setLineThickness(8);
         SimpleGraphics.drawSmoothCurve(riverPoints);
+        SimpleGraphics.drawFireworkBurst(300, 200, 80, "yellow", "red");
     }
 
     public static void main(String[] args) {

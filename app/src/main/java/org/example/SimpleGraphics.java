@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.processing.Generated;
+
 /**
  * SimpleGraphics
  * ----------------------
@@ -218,4 +220,39 @@ public class SimpleGraphics extends Application {
         }
         return c;
     }
+
+
+    //AI Attribution: Generated with Gemini.
+    //Prompt: "Create something that creates a burst of multiple lines and curved lines emanating from a point defined by double x, double y, the lengths and size should be random but still governd by a value double size, two colors can be inputed."
+
+public static void drawFireworkBurst(double x, double y, double size, String color1, String color2) {
+    int numberOfRays = 25;
+    for (int i = 0; i < numberOfRays; i++) {
+    double angle = (2 * Math.PI / numberOfRays) * i;
+    double currentSize = size * (0.4 + Math.random() * 0.6);
+    String strokeColor = (i % 2 == 0) ? color1 : color2;
+
+    setOutlineColor(strokeColor);
+    setLineThickness(1 + Math.random() * 2);
+
+    double endX = x + Math.cos(angle) * currentSize;
+    double endY = y + Math.sin(angle) * currentSize;
+
+    if (i % 3 == 0) {
+        double controlX = x + Math.cos(angle + 0.3) * (currentSize * 0.5);
+        double controlY = y + Math.sin(angle + 0.3) * (currentSize * 0.5);
+        drawSmoothCurve(List.of(
+            new double[]{x, y},
+            new double[]{controlX, controlY},
+            new double[]{endX, endY}
+        ));
+    } else {
+        drawLine(x, y, endX, endY);
+    }
+    }
+}
+
+
+
+
 }
