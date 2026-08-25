@@ -47,7 +47,7 @@ public class MyPicture {
         SimpleGraphics.setOutlineColor("blue");
         SimpleGraphics.setLineThickness(8);
         SimpleGraphics.drawSmoothCurve(riverPoints);
-        SimpleGraphics.drawFireworkBurst(300, 200, 80, "yellow", "red");
+        SimpleGraphics.drawStreamer(300, 350, 150, 70, "orange", "yellow");
     }
 
     public static void main(String[] args) {

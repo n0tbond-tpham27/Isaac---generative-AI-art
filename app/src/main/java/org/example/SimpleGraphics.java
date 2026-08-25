@@ -252,6 +252,21 @@ public static void drawFireworkBurst(double x, double y, double size, String col
     }
 }
 
+public static void drawStreamer(double positionX, double positionY, double height, double size, String color1, String color2) {
+    List<double[]> smokePath = List.of(
+    new double[]{positionX, positionY},
+    new double[]{positionX - 4, positionY - (height * 0.25)},
+    new double[]{positionX + 4, positionY - (height * 0.50)},
+    new double[]{positionX - 2, positionY - (height * 0.75)},
+    new double[]{positionX, positionY - height}
+    );
+
+    setOutlineColor("gray");
+    setLineThickness(2);
+    drawSmoothCurve(smokePath);
+
+    drawFireworkBurst(positionX, positionY - height, size, color1, color2);
+}
 
 
 
