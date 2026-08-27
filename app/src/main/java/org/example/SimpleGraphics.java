@@ -1,5 +1,9 @@
 package org.example;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -7,12 +11,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.processing.Generated;
 
 /**
  * SimpleGraphics
@@ -250,6 +248,17 @@ public static void drawFireworkBurst(double x, double y, double size, String col
         drawLine(x, y, endX, endY);
     }
     }
+}
+
+/** Draws a moon: a solid circle with a few darker craters scattered across its face. */
+public static void drawMoon(double centerX, double centerY, double radius, String moonColor) {
+    setFillColor(moonColor);
+    fillCircle(centerX, centerY, radius);
+
+    setFillColor("#c7c1c1");
+    fillCircle(centerX - radius * 0.35, centerY - radius * 0.25, radius * 0.18);
+    fillCircle(centerX + radius * 0.30, centerY + radius * 0.15, radius * 0.12);
+    fillCircle(centerX - radius * 0.05, centerY + radius * 0.40, radius * 0.10);
 }
 
 public static void drawStreamer(double positionX, double positionY, double height, double size, String color1, String color2) {

@@ -1,8 +1,5 @@
 package org.example;
 
-import java.util.List;
-import java.util.Random;
-
 
 /**
  * MyPicture.java
@@ -23,6 +20,8 @@ public class MyPicture {
         
 
         SimpleGraphics.fillBackground("black");
+
+        SimpleGraphics.drawMoon(width - 80, 70, 40, "#f4f1c9");
 
         for(int i = 0; i < (colors.length -1); i++) {
 
