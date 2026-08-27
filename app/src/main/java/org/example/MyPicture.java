@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.List;
+import java.util.Random;
+
 
 /**
  * MyPicture.java
@@ -17,37 +19,20 @@ public class MyPicture {
     public static void drawPicture(double width, double height) {
         // Fill the background
         
+        String[] colors = {"red", "orange", "yellow", "green", "blue", "#c7c1c1", "white"};
+        
 
-        SimpleGraphics.fillBackground("white");
+        SimpleGraphics.fillBackground("black");
 
+        for(int i = 0; i < (colors.length -1); i++) {
 
-        // Draw a red sun
-        SimpleGraphics.setFillColor("red");
-        SimpleGraphics.fillCircle(450, 50, 50);
+            int random = (int)(Math.random()*150);
+            int random2 = (int)(Math.random()*400);
 
-        // Draw a mountain with gray triangles
-        SimpleGraphics.setFillColor("#827e7e"); // relatively dark gray
-        SimpleGraphics.fillTriangle(300, 150, 400, 20, 350, 150);
-        SimpleGraphics.setFillColor("#c7c1c1"); // lighter gray
-        SimpleGraphics.fillTriangle(350, 150, 400, 20, 550, 150);
+            SimpleGraphics.drawStreamer(50 + i * 100, 350, random, random2, colors[i], colors[i + 1]);
+        }
 
-        // Draw the horizon
-        SimpleGraphics.setOutlineColor("black");
-        SimpleGraphics.setLineThickness(1);
-        SimpleGraphics.drawLine(0, 150, 600, 150);
-
-        // Define the points the curve should bend through
-        List<double[]> riverPoints = List.of(
-            new double[]{100, 150}, // Start point
-            new double[]{300, 200}, // Bends towards here
-            new double[]{200, 350}, // Bends back here
-            new double[]{500, 500}  // End point
-        );
-
-        SimpleGraphics.setOutlineColor("blue");
-        SimpleGraphics.setLineThickness(8);
-        SimpleGraphics.drawSmoothCurve(riverPoints);
-        SimpleGraphics.drawStreamer(300, 350, 150, 70, "orange", "yellow");
+        
     }
 
     public static void main(String[] args) {

@@ -1,5 +1,8 @@
 # SimpleGraphics (Java / JavaFX)
 
+![Image of generated art: multiple fireworks of different shapes and colors on a black background](image.png)
+
+
 Starter code for creating a static image with JavaFX's Canvas — the Java version of the tessellation
 starter used in the Intro to GitHub unit.
 
